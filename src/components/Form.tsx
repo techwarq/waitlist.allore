@@ -115,7 +115,7 @@ export const Form = () => {
 
 
 
-            const response = await fetch(`${API_URL}/api/waitlist`, {
+            const response = await fetch(`${API_URL}api/waitlist`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
