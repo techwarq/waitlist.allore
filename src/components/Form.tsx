@@ -20,72 +20,73 @@ const API_URL =
 const QUESTIONS: Question[] = [
     {
         id: 'email',
-        text: "What's your email?",
-        placeholder: "name@example.com",
+        text: "Where should we reach you?",
+        placeholder: "you@brand.com",
         type: 'email',
         required: true
     },
     {
         id: 'name',
-        text: "What's your name?",
-        placeholder: "Your full name",
+        text: "What should we call you?",
+        placeholder: "Your name",
         type: 'text',
         required: true
     },
     {
         id: 'brandName',
-        text: "What's your brand name?",
-        placeholder: "Brand Name",
+        text: "What’s your brand called?",
+        placeholder: "Brand name",
         type: 'text',
         required: true
     },
     {
         id: 'website',
-        text: "What's your website?",
-        placeholder: "https://example.com",
+        text: "Do you have a website or store link?",
+        placeholder: "https://yourbrand.com",
         type: 'url',
         required: true
     },
     {
         id: 'teamSize',
-        text: "What's your team size?",
+        text: "How big is your team right now?",
         placeholder: "Select team size",
         type: 'select',
-        options: ['Solo', '2–5', '6–20', '20+'],
+        options: ['Just me', '2–5 people', '6–20 people', '20+ people'],
         required: true
     },
     {
         id: 'brandStage',
-        text: "What's your brand stage?",
+        text: "Where is your brand today?",
         placeholder: "Select brand stage",
         type: 'select',
-        options: ['New Idea', 'Pre-launch', 'Launched'],
+        options: ['Just an idea', 'Getting ready to launch', 'Already live'],
         required: true
     },
     {
         id: 'needs',
-        text: "What do you need most?",
-        placeholder: "Select your priority",
+        text: "What do you want help with?",
+        placeholder: "Choose all that apply",
         type: 'multiselect',
         options: [
-            'Research / Planning',
-            'Brand Theme',
-            'Custom AI Model',
-            'Product Try-on',
+            'Research & planning',
+            'Brand look & theme',
+            'Custom AI setup',
+            'Product try-ons',
             'Photoshoots',
-            'Export for Marketplaces / Social',
-            'Launch Strategy'
+            'Exports for marketplaces or social',
+            'Launch & growth strategy'
         ],
         required: true
     },
     {
         id: 'notes',
-        text: "Anything else we should know?",
-        placeholder: "Tell us more... (Optional)",
+        text: "Anything else you’d like to share?",
+        placeholder: "Optional — context, goals, or ideas",
         type: 'textarea',
         required: false
     }
 ];
+
 
 export const Form = () => {
     const [step, setStep] = useState(0);
