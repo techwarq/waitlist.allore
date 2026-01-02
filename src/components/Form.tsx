@@ -216,7 +216,7 @@ export const Form = () => {
     return (
         <div className="w-full px-4 flex flex-col items-center justify-center relative z-20">
             <motion.div
-                className="bg-[#F8F6F3] shadow-2xl relative flex flex-col w-full max-w-[560px]"
+                className={`shadow-2xl relative flex flex-col w-full max-w-[560px] transition-colors duration-500 ${step === QUESTIONS.length ? 'bg-[#18A999]' : 'bg-[#F8F6F3]'}`}
                 style={{
                     minHeight: '373.878px',
                     borderRadius: '17.959px'
@@ -225,8 +225,8 @@ export const Form = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
             >
-                {/* Progress Bar */}
-                {step < QUESTIONS.length && (
+                {/* Progress Bar - Show on all steps including success */}
+                {true && (
                     <div className="flex items-center justify-between mb-8 px-6 md:px-12 pt-10 relative w-full">
                         {/* Connecting Line Container */}
                         <div className="absolute left-6 md:left-12 right-6 md:right-12 top-[calc(2.5rem+7.5px)] -translate-y-1/2 h-[3px] z-0 mx-2">
@@ -247,7 +247,7 @@ export const Form = () => {
                             const isCurrent = index === step;
 
                             return (
-                                <div key={index} className="relative z-10 flex items-center justify-center bg-[#F8F6F3]">
+                                <div key={index} className={`relative z-10 flex items-center justify-center transition-colors duration-500 ${step === QUESTIONS.length ? 'bg-[#18A999]' : 'bg-[#F8F6F3]'}`}>
                                     {isCompleted ? (
                                         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" className="transition-all duration-300">
                                             <circle cx="7.5" cy="7.5" r="7.5" fill="#0F1C2D" />
@@ -400,31 +400,37 @@ export const Form = () => {
                     ) : (
                         <motion.div
                             key="success"
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
-                            className="w-full text-center text-[#0F1C2D] p-12"
+                            className="w-full text-left px-6 md:px-12 pb-10 flex flex-col justify-center flex-1"
                         >
-                            <div className="mb-6 flex justify-center">
-                                <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center text-green-600 shadow-sm">
-                                    <Check className="w-10 h-10" />
-                                </div>
-                            </div>
-                            <h2 className="text-3xl font-medium text-[#0F1C2D] mb-4 tracking-tight">
-                                You're on the list!
+                            <h2 className="text-[32px] font-medium text-white mb-4 tracking-tight leading-tight">
+                                Application received
                             </h2>
-                            <p className="opacity-70 mb-8 text-lg font-light text-[#0F1C2D]">
-                                We'll notify you when <span className="text-[#C69C6D] font-medium">{answers['brandName']}</span> is ready.
+                            <p className="text-white/90 mb-12 text-lg font-light leading-relaxed max-w-sm">
+                                Thanks for applying. We'll review your details and email next steps within 3-5 business days.
                             </p>
-                            <button
+
+                            <motion.button
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
                                 onClick={() => {
+                                    // Reset form or navigate home
                                     setStep(0);
                                     setAnswers({});
                                 }}
-                                className="text-sm text-[#0F1C2D]/50 hover:text-[#0F1C2D] transition-colors uppercase tracking-widest font-medium"
+                                className="flex items-center justify-center gap-2 text-[#0F1C2D] font-medium text-lg transition-colors shadow-sm hover:shadow-md"
+                                style={{
+                                    width: '191px',
+                                    height: '47px',
+                                    borderRadius: '10.762px',
+                                    background: '#F8F6F3'
+                                }}
                             >
-                                Start over
-                            </button>
+                                <ArrowLeft className="w-5 h-5" />
+                                Back to home
+                            </motion.button>
                         </motion.div>
                     )}
                 </AnimatePresence>
