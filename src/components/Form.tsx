@@ -216,7 +216,7 @@ export const Form = () => {
     return (
         <div className="w-full px-4 flex flex-col items-center justify-center relative z-20">
             <motion.div
-                className={`shadow-2xl relative flex flex-col w-full max-w-[560px] transition-colors duration-500 ${step === QUESTIONS.length ? 'bg-[#18A999]' : 'bg-[#F8F6F3]'}`}
+                className={`shadow-2xl relative flex flex-col w-full max-w-[560px] overflow-hidden transition-colors duration-500 ${step === QUESTIONS.length ? 'bg-[#18A999]' : 'bg-[#F8F6F3]'}`}
                 style={{
                     minHeight: '373.878px',
                     borderRadius: '17.959px'
