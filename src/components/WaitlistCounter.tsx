@@ -14,7 +14,7 @@ export const WaitlistCounter = () => {
     useEffect(() => {
         const fetchCount = async () => {
             try {
-                const response = await fetch(`${API_URL}/api/w-v1`);
+                const response = await fetch(`${API_URL}api/w-v1`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch count');
                 }
