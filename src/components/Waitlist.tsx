@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { Form } from './Form';
+import { WaitlistCounter } from './WaitlistCounter';
 
 export const Waitlist = () => {
     useEffect(() => {
@@ -51,6 +52,9 @@ export const Waitlist = () => {
             <div className="relative z-10 w-full flex flex-col items-center">
                 <Form />
             </div>
+
+            {/* Waitlist Counter */}
+            <WaitlistCounter />
         </div>
     );
 };
