@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Bangers, Inter, Courgette, Instrument_Sans, Outfit } from "next/font/google";
 import "./globals.css";
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import { Analytics } from "@vercel/analytics/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,16 +42,26 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: " Allore AI -The all-in-one AI platform for clothing brands.",
-  description: "Plan your strategy, generate stunning visuals, and launch directly to your store.",
+  title: "Allore AI — Turn Ideas Into Sold-Out Drops",
+  description: "Build your brand story, generate visuals, and launch high-converting drops — all in one flow.",
+  keywords: [
+    "AI fashion",
+    "brand storytelling",
+    "AI photoshoot",
+    "virtual try on",
+    "fashion marketing",
+    "clothing brand tools",
+    "UGC generation",
+    "creative direction AI"
+  ],
   icons: {
     icon: [
-      { url: '/draw-logo.png' },
-      { url: '/draw-logo.png', sizes: '32x32', type: 'image/png' },
-      { url: '/draw-logo.png', sizes: '16x16', type: 'image/png' },
+      { url: '/draw-logo.svg' },
+      { url: '/draw-logo.svg', sizes: '32x32', type: 'image/svg+xml' },
+      { url: '/draw-logo.svg', sizes: '16x16', type: 'image/svg+xml' },
     ],
     apple: [
-      { url: '/draw-logo.png' },
+      { url: '/draw-logo.svg' },
     ],
   },
 };
@@ -76,6 +87,7 @@ export default function RootLayout({
             </main>
 
           </div>
+          <Analytics />
         </GoogleOAuthProvider>
       </body>
     </html>
