@@ -52,13 +52,13 @@ export const Waitlist = () => {
                     {/* Pulsing Orb SVG */}
                     <svg width="40" height="40" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
                         <defs>
-                            <filter id="simmer-nav" x="-20%" y="-20%" width="140%" height="140%">
+                            <filter id="simmer" x="-20%" y="-20%" width="140%" height="140%">
                                 <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" result="noise">
                                     <animate attributeName="seed" from="1" to="100" dur="15s" repeatCount="indefinite" />
                                 </feTurbulence>
                                 <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
                             </filter>
-                            <filter id="heavy-static-nav">
+                            <filter id="heavy-static">
                                 <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" result="grain">
                                     <animate attributeName="seed" from="1" to="100" dur="4s" repeatCount="indefinite" />
                                 </feTurbulence>
@@ -68,24 +68,26 @@ export const Waitlist = () => {
                                 </feComponentTransfer>
                                 <feComposite operator="in" in2="SourceGraphic" />
                             </filter>
-                            <linearGradient id="orbGradNav" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" stopColor="var(--background)" />
-                                <stop offset="30%" stopColor="var(--navy-1)" />
-                                <stop offset="65%" stopColor="var(--gray-1)" />
-                                <stop offset="85%" stopColor="var(--accent)" />
-                                <stop offset="100%" stopColor="var(--foreground)" />
+                            <linearGradient id="orbGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stopColor="#0d1526" />
+                                <stop offset="30%" stopColor="#212842" />
+                                <stop offset="65%" stopColor="#2e3a5c" />
+                                <stop offset="85%" stopColor="#8a7d6b" />
+                                <stop offset="100%" stopColor="#f0e7d5" />
                             </linearGradient>
-                            <clipPath id="circleClipNav">
+                            <clipPath id="circleClip">
                                 <circle cx="100" cy="100" r="85" />
                             </clipPath>
                         </defs>
-                        <g clipPath="url(#circleClipNav)">
-                            <rect width="200" height="200" fill="url(#orbGradNav)" filter="url(#simmer-nav)" />
-                            <circle cx="100" cy="140" r="55" fill="#F4F8FB" opacity="0.25" filter="url(#simmer-nav)">
+
+                        <g clipPath="url(#circleClip)">
+                            <rect width="200" height="200" fill="url(#orbGrad)" filter="url(#simmer)" />
+                            <circle cx="100" cy="140" r="55" fill="#f0e7d5" opacity="0.25" filter="url(#simmer)">
                                 <animate attributeName="opacity" values="0.15;0.35;0.15" dur="5s" repeatCount="indefinite" />
                             </circle>
                         </g>
-                        <circle cx="100" cy="100" r="85" filter="url(#heavy-static-nav)" pointerEvents="none" />
+
+                        <circle cx="100" cy="100" r="85" filter="url(#heavy-static)" pointerEvents="none" />
                     </svg>
                     <Link href="/" className="cursor-pointer flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-32 sm:w-40 md:w-48 lg:w-[180px] h-auto text-foreground" viewBox="0 0 218 29" fill="none">
